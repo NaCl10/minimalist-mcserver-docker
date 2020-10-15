@@ -1,11 +1,12 @@
 FROM openjdk:8u212-jre-alpine
 
-RUN apk update && apk upgrade
+RUN apk update \ 
+    && apk upgrade \
+    && apk add screen \
+    bash \
+    util-linux
 
-RUN addgroup -g 1000 minecraft \
-  && adduser -Ss /bin/false -u 1000 -G minecraft -h /home/minecraft minecraft \
-  && mkdir -m 777 /server \
-  && chown minecraft:minecraft /server /home/minecraft
+RUN mkdir -m 777 /server 
 
 WORKDIR /
 
