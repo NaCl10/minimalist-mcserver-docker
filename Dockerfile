@@ -2,7 +2,10 @@ FROM openjdk:8u212-jre-alpine
 
 RUN apk update \ 
     && apk upgrade \
-    && apk add screen \
+
+RUN apk add \
+    screen \
+    dumb-init \
     bash \
     util-linux
 
@@ -13,4 +16,4 @@ WORKDIR /
 COPY init.sh /
 RUN chmod +x /init.sh
 
-ENTRYPOINT ["/init.sh"]
+ENTRYPOINT ["dumb-init", "--", "/init.sh"]
