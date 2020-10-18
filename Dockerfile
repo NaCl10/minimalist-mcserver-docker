@@ -16,4 +16,4 @@ WORKDIR /
 COPY init.sh /
 RUN chmod +x /init.sh
 
-ENTRYPOINT ["dumb-init", "--", "/init.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--", "/init.sh"]
