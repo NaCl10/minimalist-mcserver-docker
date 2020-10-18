@@ -1,7 +1,7 @@
 FROM openjdk:8u212-jre-alpine
 
 RUN apk update \ 
-    && apk upgrade \
+    && apk upgrade
 
 RUN apk add \
     screen \
