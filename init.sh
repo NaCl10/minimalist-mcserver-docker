@@ -4,7 +4,7 @@ stopping() {
     screen -S mc -X stuff stop
 }
 
-trap 'stopping' SIGTERM
+trap stopping SIGTERM
 
 cd /server
 
